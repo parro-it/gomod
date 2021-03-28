@@ -33,6 +33,8 @@ jobs:
             echo Running on template repo
           else 
             echo Running on a newly created repo
+            rm .github/workflows/initialize.yml
+            echo Initialize workflow removed
           fi
           
           
