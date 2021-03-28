@@ -1,1 +1,7 @@
-ciao {{.Count}} volte.
+Author: {{.Author}}
+RepoName: {{.RepoName}}
+Root: {{.Root}}
+
+{{.}}
+
+
