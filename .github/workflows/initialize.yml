@@ -35,7 +35,7 @@ jobs:
             echo Running on a newly created repo
             rm .github/workflows/initialize.yml
             echo Initialize workflow removed
-      
+          fi      
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Initialization
@@ -85,4 +85,9 @@ jobs:
             
             
             
-          fi
+
+
+
+
+
+
