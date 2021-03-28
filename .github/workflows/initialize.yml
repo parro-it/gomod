@@ -30,7 +30,7 @@ jobs:
             rm .github/workflows/initialize.yml
             echo Initialize workflow removed
 
-            go get github.com/parro-it/templatedir/cli/tmpldir
+            go get github.com/parro-it/templatedir/cli/tmpldir@v0.0.1
             echo tmpldir installed
             tmpldir
           fi      
