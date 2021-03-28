@@ -36,6 +36,3 @@ jobs:
             rm .github/workflows/initialize.yml
             echo Initialize workflow removed
           fi
-          
-          
-          echo test, and deploy your project.
