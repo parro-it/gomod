@@ -34,7 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           if [[ $GITHUB_REPOSITORY == 'parro-it/gomod' ]]; then
-            evho Running on template repo
+            echo Running on template repo
           fi
           
           
