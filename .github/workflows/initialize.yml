@@ -23,7 +23,6 @@ jobs:
 
       - name: Run repo initialization
         run: |
-          curl -s -H "Accept: application/vnd.github.v3+json" --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/parro-it
           if [[ $GITHUB_REPOSITORY == 'parro-it/gomod' ]]; then
             echo Running on template repo
           else 
