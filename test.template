@@ -2,6 +2,10 @@ Author: {{.Author}}
 RepoName: {{.RepoName}}
 Root: {{.Root}}
 
+{{.User.Name}}
+{{.Repo.Description}}
+
+
 {{.}}
 
 
