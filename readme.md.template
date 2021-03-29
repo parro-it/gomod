@@ -1,6 +1,6 @@
 # {{.RepoName}}
 
-> This simple package allows to parse and format text files that contains set of time periods and other configuration information.
+> {{.Repo.Description}}
 
 <div align="center">
 <a 
@@ -56,4 +56,4 @@
 # License
 [MIT Licensed](LICENSE)
 
-© 2021 {{.Author}}
+© 2021 {{.User.Name}}
