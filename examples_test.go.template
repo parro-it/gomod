@@ -1,12 +1,10 @@
 package {{.RepoName}}_test
 
 import (
-	"bytes"
 	"embed"
 	"fmt"
 	"io/fs"
-	"time"
-
+	
 	"github.com/{{.Author}}/{{.RepoName}}"
 )
 
