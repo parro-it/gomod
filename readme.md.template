@@ -14,7 +14,7 @@
     style="display: inline"> 
     <img 
         alt="Tests Status" 
-        src="https://img.shields.io/github/workflow/status/{{.Author}}/{{.RepoName}}/Test/master?style=flat&label=Tests&logo=github">
+        src="https://img.shields.io/github/workflow/status/{{.Author}}/{{.RepoName}}/Test/main?style=flat&label=Tests&logo=github">
 </a>
 <a 
     href="https://codeclimate.com/github/{{.Author}}/{{.RepoName}}/test_coverage"
