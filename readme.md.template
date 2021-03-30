@@ -4,7 +4,7 @@
 
 <div align="center">
 <a 
-    href="https://github.com/{{.Author}}/{{.RepoName}}/blob/0764588ea9629ba0bdf8e5786f6371208b95067a/go.mod#L3" style="display: inline">
+    href="https://github.com/{{.Author}}/{{.RepoName}}/blob/main/go.mod#L3" style="display: inline">
     <img 
         alt="Go Version" 
         src="https://img.shields.io/github/go-mod/go-version/{{.Author}}/{{.RepoName}}?style=flat&logo=go">
