@@ -1,4 +1,3 @@
-// Package {{.RepoName}}
 // {{.Repo.Description}}
 package {{.RepoName}}
 
