@@ -13,18 +13,11 @@ jobs:
         uses: actions/checkout@v2
           
       - name: Test
-        run: go test -failfast -race ./...
-        working-directory: /home/runner/work/${GITHUB_REPOSITORY}
-
-      - name: Lint
-        working-directory: /home/runner/work/${GITHUB_REPOSITORY}
         run: |
+          go test -failfast -race ./...
           go get golang.org/x/lint/golint
           golint -set_exit_status ./...
-
-      - name: Vet
-        working-directory: /home/runner/work/${GITHUB_REPOSITORY}
-        run: go vet ./...
+          go vet ./...
       
 #      - name: Test & publish code coverage
 #        uses: paambaati/codeclimate-action@v2.7.5

@@ -23,7 +23,7 @@ jobs:
             -H "Authorization: Token token=${CODE_CLIMATE_TOKEN}" \
             -H "Content-Type: application/vnd.api+json" \
             -d @body.json \
-            https://api.codeclimate.com/v1/github/repos 
+            https://api.codeclimate.com/v1/github/repos > .codeclimate.json
 
       - name: Install Go
         uses: actions/setup-go@v2
