@@ -14,13 +14,16 @@ jobs:
           
       - name: Test
         run: go test -failfast -race ./...
- 
+        working-directory: /home/runner/work/${GITHUB_REPOSITORY}
+
       - name: Lint
+        working-directory: /home/runner/work/${GITHUB_REPOSITORY}
         run: |
           go get golang.org/x/lint/golint
           golint -set_exit_status ./...
 
       - name: Vet
+        working-directory: /home/runner/work/${GITHUB_REPOSITORY}
         run: go vet ./...
       
 #      - name: Test & publish code coverage
