@@ -24,7 +24,6 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
-    if: hashFiles('initialization-running') == ''
     strategy:
       fail-fast: false
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
