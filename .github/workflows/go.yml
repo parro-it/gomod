@@ -14,10 +14,16 @@ jobs:
           
       - name: Test
         run: |
-          go test -failfast -race ./...
-          go get golang.org/x/lint/golint
-          golint -set_exit_status ./...
-          go vet ./...
+          if [[ $GITHUB_REPOSITORY == 'parro-it/gomod' ]]; then
+            echo Running on template repo
+          else
+            if [ ! -f initialization-running ]; then 
+              go test -failfast -race ./...
+              go get golang.org/x/lint/golint
+              golint -set_exit_status ./...
+              go vet ./...
+            fi
+          fi
       
 #      - name: Test & publish code coverage
 #        uses: paambaati/codeclimate-action@v2.7.5

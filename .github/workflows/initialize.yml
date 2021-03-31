@@ -13,6 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16.x
+
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
       - name: Enable repo on codeclimate  
         env:
           CODE_CLIMATE_TOKEN: ${{ secrets.CODE_CLIMATE_TOKEN }}
@@ -24,14 +33,6 @@ jobs:
             -H "Content-Type: application/vnd.api+json" \
             -d @body.json \
             https://api.codeclimate.com/v1/github/repos > .codeclimate.json
-
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16.x
-
-      - name: Checkout repo
-        uses: actions/checkout@v2
 
       - name: Run repo initialization
         env:
@@ -47,6 +48,8 @@ jobs:
             go get github.com/parro-it/templatedir/cli/tmpldir@v0.0.5
             echo tmpldir installed
             tmpldir
+            git add .codeclimate.json
+            rm initialization-running
           fi      
       
       - name: Commit changes
