@@ -3,6 +3,7 @@ name: Test
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: hashFiles('initialization-running') == ''
     steps:
       - name: Install Go
         uses: actions/setup-go@v2
