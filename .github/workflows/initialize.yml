@@ -13,6 +13,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Enable repo on codeclimate  
+        env:
+          CODE_CLIMATE_TOKEN: ${{ secrets.CODE_CLIMATE_TOKEN }}
+        run: |
+          echo '{"data":{"type": "repos","attributes": {"url": "https://github.com/$GITHUB_REPOSITORY"}}}' > body.json
+          curl -s \
+            -H "Accept: application/vnd.api+json" \
+            -H "Authorization: Token token=${CODE_CLIMATE_TOKEN}" \
+            -H "Content-Type: application/vnd.api+json" -d @body.json https://api.codeclimate.com/v1/github/repos 
+
       - name: Install Go
         uses: actions/setup-go@v2
         with:
