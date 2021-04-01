@@ -22,7 +22,7 @@ on:
 
 jobs:
   analyze:
-    if: {{ github.repository != 'parro-it/gomod' }}
+    if: github.repository != 'parro-it/gomod'
     name: Analyze
     runs-on: ubuntu-latest
     strategy:

@@ -2,7 +2,7 @@ on: [push, pull_request]
 name: Test
 jobs:
   test:
-    if: {{ github.repository != 'parro-it/gomod' }}
+    if: github.repository != 'parro-it/gomod'
     runs-on: ubuntu-latest
     steps:
       - name: Install Go
