@@ -51,6 +51,7 @@ jobs:
           echo parro-it/templatedir installed
 
           tmpldir
+          rm addrepo setsecret
       
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
