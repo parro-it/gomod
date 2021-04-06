@@ -13,7 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository != 'parro-it/gomod'
     steps:
-
+      - name: Setup tools
+        run: |
+          echo $PWD
+          curl -o addrepo https://github.com/parrogo/ccaddrepo/releases/download/v1.1.1/addrepo
+          curl -o setsecret https://github.com/parrogo/ccaddrepo/releases/download/v1.1.1/setsecret
+          chmod +x addrepo setsecret
+          echo addrepo `./addrepo -v`
+          echo setsecret `./setsecret -v`
+            
       - name: Install Go
         uses: actions/setup-go@v2
         with:
@@ -24,37 +32,21 @@ jobs:
 
       - name: Enable repo on codeclimate  
         env:
-          CODE_CLIMATE_TOKEN: ${{ secrets.CODE_CLIMATE_TOKEN }}
-        run: |
-          if [[ $GITHUB_REPOSITORY == 'parro-it/gomod' ]]; then
-            echo Running on template repo
-          else 
-            echo '{"data":{"type": "repos","attributes": {"url": "https://github.com/'${GITHUB_REPOSITORY}'"}}}' > body.json
-            curl -s \
-              -H "Accept: application/vnd.api+json" \
-              -H "Authorization: Token token=${CODE_CLIMATE_TOKEN}" \
-              -H "Content-Type: application/vnd.api+json" \
-              -d @body.json \
-              https://api.codeclimate.com/v1/github/repos > .codeclimate.json
-          fi
+          CC_TOKEN: ${{ secrets.CC_TOKEN }}
+          GH_WORKFLOW: ${{ secrets.GH_WORKFLOW }}
+        run: ./addrepo | ./setsecret
 
       - name: Run repo initialization
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_WORKFLOW }}
         run: |
-          if [[ $GITHUB_REPOSITORY == 'parro-it/gomod' ]]; then
-            echo Running on template repo
-          else 
-            echo Running on a newly created repo
-            rm .github/workflows/initialize.yml
-            echo Initialize workflow removed
+          rm .github/workflows/initialize.yml
+          echo Initialize workflow removed
 
-            go get github.com/parro-it/templatedir/cli/tmpldir@v0.0.5
-            echo tmpldir installed
-            tmpldir
-            git add .codeclimate.json
-            rm initialization-running
-          fi      
+          go get github.com/parro-it/templatedir/cli/tmpldir@v0.0.5
+          echo parro-it/templatedir installed
+
+          tmpldir
       
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
