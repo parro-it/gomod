@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.repository != 'parro-it/gomod'
+    if: github.repository != 'parrogo/gomod'
     steps:
            
       - name: Install Go
