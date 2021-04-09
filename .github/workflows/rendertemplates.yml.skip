@@ -28,14 +28,12 @@ jobs:
           CC_BADGE: ${{ secrets.CC_BADGE }}
         run: |
           echo $PWD
-          rm .github/workflows/initialize.yml
+          rm .github/workflows/rendertemplates.yml
           echo Initialize workflow removed
 
           go get github.com/parro-it/templatedir/cli/tmpldir@v0.0.6
           echo parro-it/templatedir installed
-
           tmpldir
-          rm addrepo setsecret
       
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4

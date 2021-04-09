@@ -39,6 +39,8 @@ jobs:
       - name: Activate 
         run: |
           mv .github/workflows/rendertemplates.yml.skip .github/workflows/rendertemplates.yml
+          rm addrepo setsecret .github/workflows/initialize.yml 
+
       
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
