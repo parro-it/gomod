@@ -27,8 +27,8 @@ jobs:
       - name: Setup tools
         run: |
           echo $PWD
-          wget https://github.com/parrogo/ccaddrepo/releases/download/v1.1.11/addrepo
-          wget https://github.com/parrogo/ccaddrepo/releases/download/v1.1.11/setsecret
+          wget https://github.com/parrogo/ccaddrepo/releases/download/v1.1.12/addrepo
+          wget https://github.com/parrogo/ccaddrepo/releases/download/v1.1.12/setsecret
           chmod +x addrepo setsecret
           echo addrepo `./addrepo -v`
           echo setsecret `./setsecret -v`
