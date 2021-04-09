@@ -40,3 +40,7 @@ jobs:
         run: |
           mv .github/workflows/rendertemplates.yml.skip .github/workflows/rendertemplates.yml
       
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Initialization
