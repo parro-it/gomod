@@ -19,7 +19,7 @@ jobs:
       - name: Setup tools
         run: |
           echo $PWD
-          wget https://github.com/parrogo/templatedir/releases/download/v1.0.1/tmpldir
+          wget https://github.com/parrogo/templatedir/releases/download/v1.0.2/tmpldir
           chmod +x tmpldir
           echo tmpldir `./tmpldir -v`
 
