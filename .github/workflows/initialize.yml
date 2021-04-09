@@ -25,8 +25,8 @@ jobs:
       - name: Setup tools
         run: |
           echo $PWD
-          wget https://github.com/parrogo/ccaddrepo/releases/download/v1.1.10/addrepo
-          wget https://github.com/parrogo/ccaddrepo/releases/download/v1.1.10/setsecret
+          wget https://github.com/parrogo/ccaddrepo/releases/download/v1.1.11/addrepo
+          wget https://github.com/parrogo/ccaddrepo/releases/download/v1.1.11/setsecret
           chmod +x addrepo setsecret
           echo addrepo `./addrepo -v`
           echo setsecret `./setsecret -v`
@@ -42,6 +42,9 @@ jobs:
       - name: Run repo initialization
         env:
           GITHUB_TOKEN: ${{ secrets.GH_WORKFLOW }}
+          CC_REPO_ID: ${{ secrets.CC_REPO_ID }}
+          CC_BADGE: ${{ secrets.CC_BADGE }}
+
         run: |
           echo $PWD
           rm .github/workflows/initialize.yml
