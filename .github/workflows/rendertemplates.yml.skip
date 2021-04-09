@@ -11,15 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
            
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16.x
-
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_WORKFLOW }}
+
+      - name: Setup tools
+        run: |
+          echo $PWD
+          wget https://github.com/parrogo/templatedir/releases/download/v1.0.1/tmpldir
+          chmod +x tmpldir
+          echo tmpldir `./tmpldir -v`
 
       - name: Run repo initialization
         env:
@@ -31,9 +33,8 @@ jobs:
           rm .github/workflows/rendertemplates.yml
           echo Initialize workflow removed
 
-          go get github.com/parro-it/templatedir/cli/tmpldir@v0.0.6
           echo parro-it/templatedir installed
-          tmpldir
+          ./tmpldir
       
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
