@@ -14,11 +14,6 @@ jobs:
     if: github.repository != 'parrogo/gomod'
     steps:
            
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16.x
-
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
@@ -41,24 +36,7 @@ jobs:
           echo $PWD
           ./addrepo | ./setsecret
 
-      - name: Run repo initialization
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_WORKFLOW }}
-          CC_REPO_ID: ${{ secrets.CC_REPO_ID }}
-          CC_BADGE: ${{ secrets.CC_BADGE }}
-
+      - name: Activate 
         run: |
-          echo $PWD
-          rm .github/workflows/initialize.yml
-          echo Initialize workflow removed
-
-          go get github.com/parro-it/templatedir/cli/tmpldir@v0.0.6
-          echo parro-it/templatedir installed
-
-          tmpldir
-          rm addrepo setsecret
+          mv .github/workflows/rendertemplates.yml.skip .github/workflows/rendertemplates.yml
       
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Initialization
