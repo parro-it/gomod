@@ -17,19 +17,18 @@
         src="https://img.shields.io/github/workflow/status/{{.Author}}/{{.RepoName}}/Test/main?style=flat&label=Tests&logo=github">
 </a>
 <a 
-    href="https://codeclimate.com/github/{{.Author}}/{{.RepoName}}/test_coverage"
-    style="display: inline"> 
-    <img 
-        alt="Coverage" 
-        src="https://img.shields.io/codeclimate/coverage/{{.Author}}/{{.RepoName}}?style=flat&label=Coverage&logo=code-climate">
+    href="https://codeclimate.com/repos/{{.CCRepoID}}/test_coverage"
+    style="display: inline">
+    <img alt="Test Coverage"  
+        src="https://api.codeclimate.com/v1/badges/{{.CCBadgeID}}/test_coverage" />
 </a>
 <a 
-    href="https://codeclimate.com/github/{{.Author}}/{{.RepoName}}" 
-    style="display: inline"> 
-    <img 
-        alt="Code Climate" 
-        src="https://img.shields.io/codeclimate/maintainability/{{.Author}}/{{.RepoName}}?style=flat&label=Code-Climate&logo=code-climate">
-</a> 
+    href="https://codeclimate.com/repos/{{.CCRepoID}}/maintainability"
+    style="display: inline">
+    <img alt="Code Climate Maintainability" 
+        src="https://api.codeclimate.com/v1/badges/{{.CCBadgeID}}/maintainability" 
+    />
+</a>
 <a 
     href="https://pkg.go.dev/github.com/{{.Author}}/{{.RepoName}}" 
     style="display: inline"> 
