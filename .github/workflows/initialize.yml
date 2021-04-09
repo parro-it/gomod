@@ -61,3 +61,5 @@ jobs:
         with:
           commit_message: Initialization
           token: ${{ secrets.GH_WORKFLOW }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_WORKFLOW }}
